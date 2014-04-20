@@ -23,7 +23,6 @@ bingClient = {
       if !err && response.statusCode >= 200 && response.statusCode < 400
         try
           rawResults = JSON.parse(body).d.results
-          console.log 'Bing results count:', rawResults.length
           results = @lodash.first(rawResults, 5)
           rawPhoto = @lodash.sample(results)
 

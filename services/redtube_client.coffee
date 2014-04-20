@@ -31,7 +31,6 @@ redtubeClient =
     request.get url, {
       qs: querystring
     }, (err, response, body) ->
-      console.log 'redtube request', response.statusCode, new Date()
       if !err && response.statusCode >= 200 && response.statusCode < 400
         callback err, JSON.parse(body).videos
       else
