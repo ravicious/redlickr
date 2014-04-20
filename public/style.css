@@ -1,0 +1,176 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+.redlickr {
+}
+
+.photoBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: black;
+  background: no-repeat center center fixed;
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  -o-background-size: auto 100%;
+  background-size: auto 100%;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.controls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.buttons {
+  margin-bottom: 10px;
+}
+
+.buttons button {
+  font-weight: 300;
+}
+
+.historyList {
+  opacity: 0.5;
+  max-width: 250px;
+  height: 100%;
+  background-color: white;
+  width: 250px;
+  border-left: 1px solid #bdc3c7;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow: -moz-scrollbars-vertical;
+}
+
+.historyList:hover {
+  opacity: 1;
+}
+
+.historyItem a {
+  display: block;
+  padding: 5px;
+  width: 100%;
+  color: #2c3e50;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 0.85em;
+  font-weight: 400;
+
+  background-color: white;
+}
+
+.historyItem + .historyItem {
+  border-top: 1px solid #bdc3c7;
+}
+
+.historyItem:nth-child(even) a {
+  background-color: #ecf0f1;
+}
+
+.historyItem:hover {
+  text-decoration: underline;
+}
+
+.historyItem.active {
+  border-left: 2px solid black;
+}
+
+
+.title {
+  background-color: white;
+  color: black;
+  padding: 15px;
+  margin: 0;
+  font-size: 2.4em;
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
+.title::before {
+  filter: blur(5px);
+}
+
+@media only screen and (max-width: 960px) {
+  .title {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+/*
+ * react spinner
+ * https://github.com/chenglou/react-spinner
+ * */
+
+.spinnerWrapper {
+  height: 50px;
+  width: 50px;
+  background-color: black;
+}
+
+.react-spinner {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  left: 50%;
+}
+
+.react-spinner_bar {
+  -webkit-animation: react-spinner_spin 1.2s linear infinite;
+  -moz-animation: react-spinner_spin 1.2s linear infinite;
+  animation: react-spinner_spin 1.2s linear infinite;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  width: 6.5px;
+  height: 2.5px;
+  top: -1.25px;
+  left: -3.25px;
+}
+
+@keyframes "react-spinner_spin" {
+ 0% { opacity: 1; }
+ 100% { opacity: 0.15; }
+}
+
+@-moz-keyframes react-spinner_spin {
+ 0% { opacity: 1; }
+ 100% { opacity: 0.15; }
+}
+
+@-webkit-keyframes "react-spinner_spin" {
+ 0% { opacity: 1; }
+ 100% { opacity: 0.15; }
+}
