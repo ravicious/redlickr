@@ -1,4 +1,4 @@
-React = require('react')
+React = require('react/addons')
 R = React.DOM
 
 HistoryItem = React.createClass
@@ -9,12 +9,15 @@ HistoryItem = React.createClass
 
     @props.onHistoryItemClick(@props.item)
 
-  render: ->
-    className = 'historyItem'
-    if @props.item.uuid == @props.activeItemUuid
-      className += ' active'
+  isActiveItem: ->
+    @props.item.uuid == @props.activeItemUuid
 
-    R.div {className: className},
+  render: ->
+    classes = React.addons.classSet
+      'historyItem': true
+      'active': @isActiveItem()
+
+    R.div {className: classes},
       R.a {onClick: @onClick, href: '#historyItem'}, @props.item.title
 
 module.exports = HistoryItem
