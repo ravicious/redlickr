@@ -19374,7 +19374,15 @@ React = require('react');
 Redlickr = require('./redlickr.coffee');
 
 document.addEventListener('DOMContentLoaded', function() {
-  return React.renderComponent(Redlickr(), document.body);
+  var googleTracker;
+  if (typeof __gaTracker !== "undefined" && __gaTracker !== null) {
+    googleTracker = __gaTracker;
+  } else {
+    googleTracker = null;
+  }
+  return React.renderComponent(Redlickr({
+    googleTracker: googleTracker
+  }), document.body);
 });
 
 
@@ -19419,6 +19427,9 @@ Redlickr = React.createClass({
   onRandomClick: function(e) {
     if (e != null) {
       e.preventDefault();
+    }
+    if (this.props.googleTracker) {
+      this.props.googleTracker('send', 'event', 'randomClick');
     }
     if (this.state.loadingInProgress) {
       return false;

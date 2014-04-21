@@ -15,7 +15,7 @@ app.use(logfmt.requestLogger())
 redlickrClient = require('./services/redlickr_client.coffee')
 
 app.get '/', (req, res) ->
-  res.render 'index'
+  res.render 'index', environment: process.env.NODE_ENV
 
 app.get '/art/random', (req, res) ->
   redlickrClient.randomArt (err, art) ->
