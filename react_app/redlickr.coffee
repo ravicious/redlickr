@@ -29,8 +29,6 @@ Redlickr = React.createClass
     if @props.googleTracker
       @props.googleTracker('send', 'event', 'randomClick')
 
-    return false if @state.loadingInProgress
-
     @setState loadingInProgress: true
 
     @getRandomArt (err, result) =>
