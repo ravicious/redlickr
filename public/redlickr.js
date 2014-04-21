@@ -19431,9 +19431,6 @@ Redlickr = React.createClass({
     if (this.props.googleTracker) {
       this.props.googleTracker('send', 'event', 'randomClick');
     }
-    if (this.state.loadingInProgress) {
-      return false;
-    }
     this.setState({
       loadingInProgress: true
     });
@@ -19478,7 +19475,7 @@ Redlickr = React.createClass({
   },
   onKeyDown: function(e) {
     var _ref;
-    if ((_ref = e.keyCode) === 13 || _ref === 32) {
+    if (((_ref = e.keyCode) === 13 || _ref === 32) && !this.state.loadingInProgress) {
       return this.onRandomClick(e);
     }
   },
