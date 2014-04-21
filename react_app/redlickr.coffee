@@ -49,6 +49,10 @@ Redlickr = React.createClass
           historyItems: @state.historyItems
           loadingInProgress: false
 
+  onRandomClickProxy: (e) ->
+    e?.preventDefault()
+    @onRandomClick() if not @state.loadingInProgress
+
   onHistoryItemClick: (item) ->
     @setState
       art: item
@@ -60,9 +64,7 @@ Redlickr = React.createClass
 
   onKeyDown: (e) ->
     # 13 - enter, 32 - space
-    if e.keyCode in [13, 32]
-      e.preventDefault()
-      @onRandomClick() if not @state.loadingInProgress
+    @onRandomClickProxy(e) if e.keyCode in [13, 32]
 
   componentDidMount: ->
     document.onkeydown = @onKeyDown
@@ -81,7 +83,7 @@ Redlickr = React.createClass
       backgroundElement.style.backgroundImage = "url(#{@state.art.url})"
 
     R.div {className: 'redlickr'},
-      R.div {className: 'photoBox'}
+      R.div {className: 'photoBox', onClick: @onRandomClickProxy}
       @showSpinner() if @state.loadingInProgress
       R.div {className: 'controls'},
         R.div {className: 'buttons'},
@@ -93,6 +95,6 @@ Redlickr = React.createClass
           onHistoryItemClick: @onHistoryItemClick
           visible: @state.showHistory
           activeItemUuid: @state.art?.uuid
-        R.h1 {className: 'title'}, @state.art?.title || "Press space, enter or a button, buddy"
+        R.h1 {className: 'title', onClick: @onRandomClickProxy}, @state.art?.title || "Tap me or press space, enter or a button, buddy"
 
 module.exports = Redlickr

@@ -19460,6 +19460,14 @@ Redlickr = React.createClass({
       };
     })(this));
   },
+  onRandomClickProxy: function(e) {
+    if (e != null) {
+      e.preventDefault();
+    }
+    if (!this.state.loadingInProgress) {
+      return this.onRandomClick();
+    }
+  },
   onHistoryItemClick: function(item) {
     return this.setState({
       art: item
@@ -19476,10 +19484,7 @@ Redlickr = React.createClass({
   onKeyDown: function(e) {
     var _ref;
     if ((_ref = e.keyCode) === 13 || _ref === 32) {
-      e.preventDefault();
-      if (!this.state.loadingInProgress) {
-        return this.onRandomClick();
-      }
+      return this.onRandomClickProxy(e);
     }
   },
   componentDidMount: function() {
@@ -19500,7 +19505,8 @@ Redlickr = React.createClass({
     return R.div({
       className: 'redlickr'
     }, R.div({
-      className: 'photoBox'
+      className: 'photoBox',
+      onClick: this.onRandomClickProxy
     }), this.state.loadingInProgress ? this.showSpinner() : void 0, R.div({
       className: 'controls'
     }, R.div({
@@ -19518,8 +19524,9 @@ Redlickr = React.createClass({
       visible: this.state.showHistory,
       activeItemUuid: (_ref = this.state.art) != null ? _ref.uuid : void 0
     }), R.h1({
-      className: 'title'
-    }, ((_ref1 = this.state.art) != null ? _ref1.title : void 0) || "Press space, enter or a button, buddy")));
+      className: 'title',
+      onClick: this.onRandomClickProxy
+    }, ((_ref1 = this.state.art) != null ? _ref1.title : void 0) || "Tap me or press space, enter or a button, buddy")));
   }
 });
 
