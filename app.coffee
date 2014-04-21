@@ -28,5 +28,4 @@ app.get '/art/random', (req, res) ->
 
 port = Number(process.env.PORT || 3000)
 server = app.listen port, ->
-  console.log '%d environment', process.env.NODE_ENV
-  console.log 'Listening on port %d', server.address().port
+  console.log "Listening on port #{server.address().port}, #{process.env.NODE_ENV} environment"
