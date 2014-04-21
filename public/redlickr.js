@@ -19475,8 +19475,11 @@ Redlickr = React.createClass({
   },
   onKeyDown: function(e) {
     var _ref;
-    if (((_ref = e.keyCode) === 13 || _ref === 32) && !this.state.loadingInProgress) {
-      return this.onRandomClick(e);
+    if ((_ref = e.keyCode) === 13 || _ref === 32) {
+      e.preventDefault();
+      if (!this.state.loadingInProgress) {
+        return this.onRandomClick();
+      }
     }
   },
   componentDidMount: function() {

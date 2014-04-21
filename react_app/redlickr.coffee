@@ -60,8 +60,9 @@ Redlickr = React.createClass
 
   onKeyDown: (e) ->
     # 13 - enter, 32 - space
-    if e.keyCode in [13, 32] and not @state.loadingInProgress
-      @onRandomClick(e)
+    if e.keyCode in [13, 32]
+      e.preventDefault()
+      @onRandomClick() if not @state.loadingInProgress
 
   componentDidMount: ->
     document.onkeydown = @onKeyDown
