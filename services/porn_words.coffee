@@ -22,4 +22,5 @@ module.exports = [
   "upskirt", "strip", "gangbang", "bang", "busty", "assfucked", "deepthroat", "squirting", "squirt", "masturbation", "doublefuck", "hot", "chick", "hardcore", "teen", "teeny", "babe", "sextape", "lingerie", "bikini", "stud"
   "the", "a", "an", "and", "with", "nice", "squirts", "teenie", "petite", "erotic", "titty", "masturbandoce", "cums", "masturbating", "tease", "fingering", "cute", "sweet", "milf", "little", "webcam"
   "livecam", "bdsm", "slave", "massage", "juggs", "camgirl", "bigtits", "young", "teens", "brazzers", "hentai", "jerking", "jerkin", "sucking", "teasing", "gangbanged", "blonde", "bigboob", "load", "lust"
+  "sperm", "jizzed"
 ]
