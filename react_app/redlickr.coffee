@@ -27,6 +27,8 @@ Redlickr = React.createClass
   onRandomClick: (e) ->
     e?.preventDefault()
 
+    return false if @state.loadingInProgress
+
     @setState loadingInProgress: true
 
     @getRandomArt (err, result) =>
@@ -52,8 +54,17 @@ Redlickr = React.createClass
       art: item
 
   onToggleHistoryClick: (e) ->
+    e?.preventDefault()
     @setState
       showHistory: !@state.showHistory
+
+  onKeyDown: (e) ->
+    # 13 - enter, 32 - space
+    if e.keyCode in [13, 32]
+      @onRandomClick(e)
+
+  componentDidMount: ->
+    document.onkeydown = @onKeyDown
 
   showSpinner: ->
     R.div {className: "spinnerWrapper"}, Spinner()
@@ -81,6 +92,6 @@ Redlickr = React.createClass
           onHistoryItemClick: @onHistoryItemClick
           visible: @state.showHistory
           activeItemUuid: @state.art?.uuid
-        R.h1 {className: 'title'}, @state.art?.title || "Click on the button, buddy"
+        R.h1 {className: 'title'}, @state.art?.title || "Press space, enter or a button, buddy"
 
 module.exports = Redlickr
