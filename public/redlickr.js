@@ -19526,7 +19526,7 @@ Redlickr = React.createClass({
     }), R.h1({
       className: 'title',
       onClick: this.onRandomClickProxy
-    }, ((_ref1 = this.state.art) != null ? _ref1.title : void 0) || "Tap me or press space, enter or a button, buddy")));
+    }, ((_ref1 = this.state.art) != null ? _ref1.title : void 0) || "Tap me, space or a button, buddy")));
   }
 });
 

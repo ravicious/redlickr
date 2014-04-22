@@ -95,6 +95,6 @@ Redlickr = React.createClass
           onHistoryItemClick: @onHistoryItemClick
           visible: @state.showHistory
           activeItemUuid: @state.art?.uuid
-        R.h1 {className: 'title', onClick: @onRandomClickProxy}, @state.art?.title || "Tap me or press space, enter or a button, buddy"
+        R.h1 {className: 'title', onClick: @onRandomClickProxy}, @state.art?.title || "Tap me, space or a button, buddy"
 
 module.exports = Redlickr
