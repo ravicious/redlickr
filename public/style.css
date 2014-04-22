@@ -88,6 +88,11 @@ h1, h2 {
   visibility: hidden;
 }
 
+/* http://stackoverflow.com/a/17490775/742872 */
+.photoBox, .title {
+  cursor: pointer;
+}
+
 .controls {
   position: fixed;
   top: 0;
